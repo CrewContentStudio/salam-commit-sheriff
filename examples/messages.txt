@@ -1,0 +1,5 @@
+feat: add deterministic commit-message audit
+fix: reject credential-like subjects
+docs: explain the scoring model
+WIP
+token=example-do-not-commit

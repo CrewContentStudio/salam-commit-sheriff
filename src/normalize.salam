@@ -1,0 +1,10 @@
+package sheriff
+import str
+
+pub func Clean(message: str): str:
+    ret str.Trim(message)
+end
+
+pub func IsBlank(message: str): bool:
+    ret str.Trim(message).len() == 0
+end

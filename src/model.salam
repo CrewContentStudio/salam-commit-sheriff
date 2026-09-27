@@ -1,0 +1,9 @@
+package sheriff
+
+pub struct Audit:
+    pub message: str = ""
+end
+
+pub func NewAudit(message: str): Audit:
+    ret Audit { message = message }
+end

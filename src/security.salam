@@ -1,0 +1,6 @@
+package sheriff
+import str
+
+pub func LooksSensitive(message: str): bool:
+    ret str.Contains(message, "password=") || str.Contains(message, "api_key=") || str.Contains(message, "secret=") || str.Contains(message, "token=")
+end

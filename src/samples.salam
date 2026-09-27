@@ -1,0 +1,9 @@
+package sheriff
+
+pub func SampleGood(): str:
+    ret "feat: add deterministic commit-message audit"
+end
+
+pub func SampleBad(): str:
+    ret "WIP"
+end

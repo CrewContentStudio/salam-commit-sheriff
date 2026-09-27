@@ -1,0 +1,26 @@
+import os
+include "src/model.salam"
+include "src/scoring.salam"
+include "src/advice.salam"
+include "src/formatter.salam"
+include "src/samples.salam"
+
+func audit_one(message: str):
+    audit := model.NewAudit(message)
+    score := scoring.Score(audit.message)
+    println formatter.Render(audit.message, score, advice.Advice(audit.message))
+end
+
+func main:
+    args := os.Args()
+    if args.len() <= 1:
+        audit_one(samples.SampleGood())
+        audit_one(samples.SampleBad())
+        ret
+    end
+    mut i := 1
+    until i < args.len():
+        audit_one(args.get(i))
+        i = i + 1
+    end
+end

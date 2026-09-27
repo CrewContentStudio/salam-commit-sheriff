@@ -2,7 +2,7 @@ package sheriff
 import str
 
 pub func HasKnownType(message: str): bool:
-    ret str.StartsWith(message, "feat:") || str.StartsWith(message, "fix:") || str.StartsWith(message, "docs:") || str.StartsWith(message, "test:") || str.StartsWith(message, "refactor:") || str.StartsWith(message, "chore:")
+    ret str.StartsWith(message, "feat:") || str.StartsWith(message, "fix:") || str.StartsWith(message, "docs:") || str.StartsWith(message, "test:") || str.StartsWith(message, "refactor:") || str.StartsWith(message, "chore:") || str.StartsWith(message, "build:") || str.StartsWith(message, "ci:") || str.StartsWith(message, "perf:")
 end
 
 pub func HasSeparator(message: str): bool:

@@ -1,0 +1,14 @@
+package sheriff
+import str
+
+pub func TooShort(message: str): bool:
+    ret message.len() < 12
+end
+
+pub func TooLong(message: str): bool:
+    ret message.len() > 72
+end
+
+pub func HasPlaceholder(message: str): bool:
+    ret str.Contains(message, "WIP") || str.Contains(message, "TODO") || str.Contains(message, "asdf")
+end

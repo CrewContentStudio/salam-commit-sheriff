@@ -1,0 +1,19 @@
+package sheriff
+include "normalize.salam"
+include "conventional.salam"
+include "security.salam"
+include "quality.salam"
+
+pub func Score(message: str): int:
+    m := normalize.Clean(message)
+    mut score := 100
+    if normalize.IsBlank(m): ret 0 end
+    if !conventional.HasKnownType(m): score = score - 25 end
+    if !conventional.HasSeparator(m): score = score - 15 end
+    if quality.TooShort(m): score = score - 15 end
+    if quality.TooLong(m): score = score - 10 end
+    if quality.HasPlaceholder(m): score = score - 20 end
+    if security.LooksSensitive(m): score = score - 50 end
+    if score < 0: ret 0 end
+    ret score
+end

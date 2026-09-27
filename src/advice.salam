@@ -1,0 +1,13 @@
+package sheriff
+include "conventional.salam"
+include "security.salam"
+include "quality.salam"
+
+pub func Advice(message: str): str:
+    if security.LooksSensitive(message): ret "remove possible credential material before committing" end
+    if !conventional.HasKnownType(message): ret "use a conventional type such as feat:, fix:, docs:, test:, refactor:, or chore:" end
+    if quality.TooShort(message): ret "describe the change more specifically" end
+    if quality.TooLong(message): ret "keep the subject at 72 characters or fewer" end
+    if quality.HasPlaceholder(message): ret "replace WIP/TODO placeholders with an intentional subject" end
+    ret "looks good"
+end

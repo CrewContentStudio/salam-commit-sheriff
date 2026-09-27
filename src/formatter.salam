@@ -1,0 +1,12 @@
+package sheriff
+import conv
+
+pub func Verdict(score: int): str:
+    if score >= 90: ret "PASS" end
+    if score >= 70: ret "REVIEW" end
+    ret "FAIL"
+end
+
+pub func Render(message: str, score: int, advice: str): str:
+    ret Verdict(score).concat(" | ").concat(conv.FormatInt(score as i64)).concat("/100 | ").concat(message).concat(" | ").concat(advice)
+end
